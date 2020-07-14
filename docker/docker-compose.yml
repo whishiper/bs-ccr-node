@@ -1,0 +1,24 @@
+version: '3'
+services:
+    node:
+        image: registry.cn-shenzhen.aliyuncs.com/yxw-docker/node10.15.3:latest
+        container_name: node
+        hostname: node
+        ports:
+            - "7100:7100"
+        working_dir: /source/bs-ccr-node
+        links:
+            - redis:redis
+        volumes:
+            - /source/bs-ccr-node:/source/bs-ccr-node
+            - /Users/yang/Library/Caches/Yarn/v4:/usr/local/share/.cache/yarn/v4
+        command: ["/bin/sh", "-c", "yarn install && yarn dev"]
+    redis:
+        image: redis:3
+        container_name: redis
+        hostname: redis
+        command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123zxc
+        volumes:
+            - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+        ports:
+            - "6379:6379"

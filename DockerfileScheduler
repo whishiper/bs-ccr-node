@@ -1,0 +1,12 @@
+FROM centos:centos7
+MAINTAINER yuxuewen <8586826@qq.com>
+
+
+COPY scheduler.sh /tmp/scheduler.sh
+
+RUN chmod +x /tmp/scheduler.sh
+
+ENV ROUTE=""
+ENV ADDRESS=""
+
+CMD  ["/bin/sh", "-c", "/tmp/scheduler.sh $ROUTE $ADDRESS"]

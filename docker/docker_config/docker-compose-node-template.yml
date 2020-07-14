@@ -1,0 +1,16 @@
+version: '3'
+services:
+    %(nodeDevName)s:
+        image: registry.cn-shenzhen.aliyuncs.com/yxw-docker/node10.15.3:latest
+        container_name: %(nodeDevName)s
+        hostname: %(nodeDevName)s
+        network_mode: bridge
+        ports:
+            - "%(port)s:%(port)s"
+        working_dir: %(projectPath)s
+        external_links:
+            - %(redisDevName)s:%(redisDevName)s
+        volumes:
+            - %(projectPath)s:%(projectPath)s
+            %(yarn_cache_dir)s
+        command: ["/bin/sh", "-c", "yarn install && yarn dev"]

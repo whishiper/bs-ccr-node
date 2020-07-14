@@ -1,0 +1,16 @@
+version: '3'
+services:
+    node-master-dev:
+        image: registry.cn-shenzhen.aliyuncs.com/yxw-docker/node10.15.3:latest
+        container_name: node-master-dev
+        hostname: node-master-dev
+        network_mode: bridge
+        ports:
+            - "9100:9100"
+        working_dir: /source/bs-ccr-node
+        external_links:
+          - redis-dev:redis-dev
+        volumes:
+            - /source/bs-node/bs-ccr-node:/source/bs-ccr-node
+            - /Users/yang/Library/Caches/Yarn/v4:/usr/local/share/.cache/yarn/v4
+        command: ["/bin/sh", "-c", "yarn install && yarn dev"]
