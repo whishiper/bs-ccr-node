@@ -1,0 +1,28 @@
+{
+  "name": "bs-ccr-node-okex-ws",
+  "version": "1.0.0",
+  "description": "node server for ccr",
+  "private": true,
+
+  "dependencies": {
+    "ws": "^7.2.1",
+    "pako": "^1.0.11"
+  },
+  "devDependencies": {
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "rbn-dev": "rbn-egg-bin/bin/rbn-egg-bin.js dev"
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}

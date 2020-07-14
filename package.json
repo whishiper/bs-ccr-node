@@ -1,0 +1,70 @@
+{
+  "name": "bs-ccr-node",
+  "version": "1.0.0",
+  "description": "node server for ccr",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "acm-client": "^3.1.0",
+    "ali-ons": "^3.6.5",
+    "crypto-js": "^3.1.9-1",
+    "egg": "^2.15.1",
+    "egg-ali-cloud-pop-core": "^1.0.1",
+    "egg-cors": "^2.2.0",
+    "egg-redis": "^2.3.2",
+    "egg-scripts": "^2.11.0",
+    "egg-validate": "^2.0.2",
+    "http": "^0.0.0",
+    "https": "^1.0.0",
+    "https-proxy-agent": "^3.0.0",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "node-rsa": "^1.0.6",
+    "pako": "^1.0.11",
+    "request": "^2.88.0",
+    "superagent": "^5.1.0",
+    "superagent-proxy": "^2.0.0",
+    "trim-newlines": "^3.0.0",
+    "url": "^0.11.0",
+    "ws": "^7.2.1"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --title=egg-server-bs-ccr-node",
+    "stop": "egg-scripts stop --title=egg-server-bs-ccr-node",
+    "docker": "EGG_SERVER_ENV=docker egg-bin dev",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "rbn-dev": "rbn-egg-bin/bin/rbn-egg-bin.js dev",
+    "rbn-start-test": "rbn-egg-scripts/bin/rbn-egg-scripts.js test",
+    "rbn-start-prod": "rbn-egg-scripts/bin/rbn-egg-scripts.js start"
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}
