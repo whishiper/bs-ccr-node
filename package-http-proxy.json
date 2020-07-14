@@ -1,0 +1,31 @@
+{
+  "name": "bs-ccr-node-huobi-ws",
+  "version": "1.0.0",
+  "description": "node server for ccr",
+  "private": true,
+
+  "dependencies": {
+    "http": "^0.0.0",
+    "http-proxy": "^1.18.0",
+    "pako": "^1.0.11",
+    "acm-client": "^3.1.0",
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "rbn-dev": "rbn-egg-bin/bin/rbn-egg-bin.js dev"
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}

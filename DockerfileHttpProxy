@@ -1,0 +1,27 @@
+FROM node:12.14
+MAINTAINER yuxuewen <8586826@qq.com>
+
+RUN mkdir /opt/app
+
+COPY ./http-proxy.js /opt/app/http-proxy.js
+
+COPY ./package-http-proxy.json /opt/app/package.json
+
+COPY ./ccr9999.p12 /opt/app/ccr9999.p12
+
+WORKDIR /opt/app
+
+RUN npm install && npm install pm2 -g
+
+ENV acm_endpoint='' \
+    acm_namespace='' \
+    acm_accessKey='' \
+    acm_secretKey='' \
+    acm_requestTimeout=6000 \
+    acm_dataId='prod-egg-huobi-server' \
+    acm_group='DEFAULT_GROUP' \
+    p12_path='/opt/app/ccr9999.p12'
+
+EXPOSE 8000
+
+CMD  ["pm2-runtime" , "http-proxy.js"]

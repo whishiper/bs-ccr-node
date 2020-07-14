@@ -1,0 +1,20 @@
+version: '3'
+services:
+    node-huobi-dev:
+        image: registry.cn-shenzhen.aliyuncs.com/yxw-docker/node10.15.3:latest
+        container_name: node-huobi-dev
+        hostname: node-huobi-dev
+        network_mode: bridge
+        ports:
+            - "9200:9200"
+        working_dir: /source/bs-ccr-node-huobi
+        volumes:
+            - /source/bs-ccr-node-huobi:/source/bs-ccr-node-huobi
+            - /Users/sivan/Library/Caches/Yarn/v4:/usr/local/share/.cache/yarn/v4
+        environment:
+            ENV_GROUP_ID: bs-ccr-node
+            ENV_ENDPOINT: addr-sz-internal.edas.aliyun.com
+            ENV_NAMESPACE: 3b301850-faa2-4748-b962-f499c5e24c97
+            ENV_ALIYUN_ACCESS_KEY: LTAI4FipRPK3htsT54j4ahZa
+            ENV_ALIYUN_SECRET_KEY: Oz9fRDjndnfTWMlBCcw8mVkm2Z0xQV
+        command: ["/bin/sh", "-c", "yarn install && yarn dev"]

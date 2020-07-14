@@ -1,0 +1,27 @@
+#create by yuxuewen
+#email 8586826@qq.com
+version: '3'
+services:
+    mysql-dev:
+        image: mysql:5.7
+        container_name: mysql-dev
+        hostname: mysql-dev
+        network_mode: bridge
+        ports:
+          - "3306:3306"
+        volumes:
+          - ./mysql:/var/lib/mysql
+          - ./my.cnf:/etc/mysql/conf.d/my.cnf
+        environment:
+          - MYSQL_ROOT_PASSWORD=123zxc
+    redis-dev:
+        image: redis:3
+        container_name: redis-dev
+        network_mode: bridge
+        hostname: redis-dev
+        command: redis-server /usr/local/etc/redis/redis.conf --requirepass 123zxc
+        volumes:
+          - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+        ports:
+          - "6379:6379"
+
